@@ -12,6 +12,8 @@ import {
   Divider,
   useColorModeValue,
 } from '@chakra-ui/react';
+import ChatInterface from '@/components/ChatInterface';
+import ConversationChat from '@/components/ConversationChat';
 
 interface Message {
   id: number;
@@ -20,7 +22,7 @@ interface Message {
   timestamp: string;
 }
 
-export default function ConversationPage() {
+/*export default function ConversationPage() {
   const searchParams = useSearchParams();
   const conversationId = searchParams.get('conversation');
   const { token } = useAuth();
@@ -94,4 +96,16 @@ export default function ConversationPage() {
       )}
     </Box>
   );
-}
+}*/
+
+
+export default function ConversationPage() {
+    const searchParams = useSearchParams();
+    const conversationId = searchParams.get('conversation');
+  
+    if (!conversationId) return <p>Conversation introuvable</p>;
+  
+    //return <ChatInterface conversationId={conversationId} />;
+    return <ConversationChat conversationId={conversationId} />;
+  }
+  
